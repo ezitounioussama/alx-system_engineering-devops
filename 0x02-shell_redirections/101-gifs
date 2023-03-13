@@ -1,2 +1,11 @@
 #!/bin/bash
-find . -type f -name "*.gif" -printf "%f\n" | rev | cut -c 5- | rev | sort -f
+
+shopt -s nullglob
+shopt -s nocaseglob
+
+for file in $(find . -type f -name ".gif" | sed -r 's/.gif$//')
+do
+echo "${file##/}"
+done | sort -f
+
+echo ""

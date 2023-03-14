@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(( $(echo $WATER | tr water 01234) + $(echo $STIR | tr stir 01234) )) | tr 0123456789 s0g7q5r3m9f
+echo "obase=10; ibase=5; $WATER" | bc | xargs echo "+ ibase=5; $STIR" | bc | xargs echo "obase=10; ibase=5; " | bc | tr '0123456789' 's0g7q5r3m9f'

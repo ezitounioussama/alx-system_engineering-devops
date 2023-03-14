@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$WATER" | tr 'water' '01234' | tr -d '\n' | xargs printf '%d\n' | awk '{a=$1; getline < "/dev/stdin"; print a+$1;}' FS= "$(echo "$STIR" | tr 'stir' '01234' | tr -d '\n' | xargs printf '%d\n' | tr '\n' ' ')" | xargs printf 'obase=10; %d\n' | bc | tr '0123456789' 's0g7q5r3m9f'
+echo "$WATER" | tr 'water' '01234' | tr -d '\n' | xargs printf '%d\n' | awk '{a=$1; getline < "/dev/stdin"; print a+$1}' FS= "$(echo "$STIR" | tr 'stir' '01234' | tr -d '\n' | xargs printf '%d\n' | tr '\n' ' ')" | (printf 'obase=10\n'; cat) | tr -d '\n' | bc | tr '0123456789' 's0g7q5r3m9f'

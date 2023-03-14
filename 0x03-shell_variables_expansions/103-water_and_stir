@@ -1,10 +1,6 @@
 #!/bin/bash
-# Convert input strings to decimal numbers
 water_dec=$(echo $WATER | tr 'water' '01234')
 stir_dec=$(echo $STIR | tr 'stir' '01234')
-# Add the two numbers in decimal base
 result_dec=$((water_dec + stir_dec))
-# Convert the result to bestchol base
 result_bestchol=$(echo $result_dec | tr '0123456789' 's0g7q5r3m9f')
-# Print the result
 echo $result_bestchol

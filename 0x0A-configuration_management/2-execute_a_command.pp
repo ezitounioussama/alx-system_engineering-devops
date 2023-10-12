@@ -1,3 +1,6 @@
-# kill a process called killmenow
-exec { '/usr/bin/env pkill -9 killmenow':
+# kill process killmenow
+
+exec { 'pkill':
+  command  => 'pkill killmenow',
+  provider => 'shell',
 }
